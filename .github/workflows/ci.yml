@@ -36,3 +36,6 @@ jobs:
 
       - name: Run Go style check
         run: test -z $(go fmt ./...)
+
+      - name: Run Go linter
+        uses: dominikh/staticcheck-action@v1.4.1
