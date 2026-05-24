@@ -22,7 +22,9 @@ jobs:
         run: go test ./... -cover
 
       - name: Run Go security checker (gosec)
-        uses: securego/gosec@v2.26.1
+        uses: securego/gosec@master
+        with:
+          args: ./...
 
   style:
     name: Style
@@ -41,4 +43,6 @@ jobs:
         run: test -z $(go fmt ./...)
 
       - name: Run Go linter (staticcheck)
-        uses: dominikh/staticcheck-action@v1.4.1
+        uses: dominikh/staticcheck-action@v1
+        with:
+          version: "latest"
