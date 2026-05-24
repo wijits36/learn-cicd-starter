@@ -18,8 +18,11 @@ jobs:
         with:
           go-version: "1.26.0"
 
-      - name: Run Go tests with coverage report
+      - name: Run Go tests with coverage report (go test)
         run: go test ./... -cover
+
+      - name: Run Go security checker (gosec)
+        uses: securego/gosec@v2.26.1
 
   style:
     name: Style
@@ -34,8 +37,8 @@ jobs:
         with:
           go-version: "1.26.0"
 
-      - name: Run Go style check
+      - name: Run Go style check (go fmt)
         run: test -z $(go fmt ./...)
 
-      - name: Run Go linter
+      - name: Run Go linter (staticcheck)
         uses: dominikh/staticcheck-action@v1.4.1
