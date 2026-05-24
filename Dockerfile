@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 debian:stable-slim
+ARG BUILD_PLATFORM=linux/amd64
+FROM --platform=$BUILD_PLATFORM debian:stable-slim
 
 RUN apt-get update && apt-get install -y ca-certificates
 
